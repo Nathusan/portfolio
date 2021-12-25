@@ -1,5 +1,5 @@
 import React from 'react';
-import { App } from '../pages/App';
+import { App } from '../pages/Home';
 import { About } from '../pages/About';
 import { Projects } from '../pages/Projects';
 import {
