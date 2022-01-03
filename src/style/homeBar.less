@@ -20,7 +20,7 @@ body {
     background-color: #011627;
 
     .bar {
-        background-color: #E71D36;
+        background-color: #fbfbfb;
         height: .5rem;
         width: 100%;
         border-radius: 10px;
@@ -38,15 +38,15 @@ body {
         color: black;
         margin: 0 auto;
         text-align: center;
+        height: 6vh;
 
         .nith-title {
-            color: #2EC4B6;
+            color: #FFF;
             font-family: 'Libre Baskerville', serif;
             left: 0;
             position: absolute;
             font-size: 4vh;
             padding: 1rem;
-            background-color: #011627;
         }
 
         .navbar-links {
@@ -54,6 +54,8 @@ body {
             font-size: 3vh;
             padding: 1.3rem;
             color: #FDFFFC;
+            position: absolute;
+            right: 0;
 
             a:hover {
                 background-color: #E71D36
@@ -65,18 +67,38 @@ body {
             text-align: center;
             text-decoration: none;
             color: inherit;
-            padding: 1rem;
             border-radius: 2vh;
+            padding: 1rem;
+            right: 0;
         }
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 700px) {
     .toggle-button {
         display: flex;
     }
 
+    .nith-title {
+        width: 100%;
+        content: 'Niths portfolio';
+    }
+
     .navbar-links {
         display: none;
+        flex-direction: column;
+        background-color: slategrey;
+        position: unset !important;
+        right: unset !important;
     }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .navbar {
+        flex-direction: column;
+    }
+
+
 }
