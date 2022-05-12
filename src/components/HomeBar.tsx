@@ -12,17 +12,18 @@ export function Homebar(): JSX.Element {
   return (
     <div className='home-bar'>
       <nav>
+        <div className='navbar-links'>
+          <Link to='/'>Home</Link>
+          <Link to='/about'>About</Link>
+          <Link to='/projects'>Projects</Link>
+        </div>
         <div className='nith-title'>Nithusan Sivalingarajah</div>
         <a className='toggle-button' onClick={onClick}>
           <span className='bar' />
           <span className='bar' />
           <span className='bar' />
         </a>
-        <div className='navbar-links'>
-          <Link to='/'>Home</Link>
-          <Link to='/about'>About</Link>
-          <Link to='/projects'>Projects</Link>
-        </div>
+
       </nav>
     </div>
   );

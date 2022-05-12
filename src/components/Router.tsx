@@ -7,11 +7,11 @@ import { Projects } from '../pages/Projects';
 export function Router(): JSX.Element {
   return (
     <reactRouterDom.BrowserRouter>
-        <reactRouterDom.Routes>
-          <reactRouterDom.Route path="/" element={<App/>}/>
-          <reactRouterDom.Route path="/about" element={<About/>}/>
-          <reactRouterDom.Route path="/projects" element={<Projects/>}/>
-        </reactRouterDom.Routes>
+      <reactRouterDom.Routes>
+        <reactRouterDom.Route path='/' element={<App />} />
+        <reactRouterDom.Route path='/about' element={<About />} />
+        <reactRouterDom.Route path='/projects' element={<Projects />} />
+      </reactRouterDom.Routes>
     </reactRouterDom.BrowserRouter>
   );
 }
