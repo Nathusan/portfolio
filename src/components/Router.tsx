@@ -1,21 +1,17 @@
 import React from 'react';
+import * as reactRouterDom from 'react-router-dom';
 import { App } from '../pages/Home';
 import { About } from '../pages/About';
 import { Projects } from '../pages/Projects';
-import {
-    BrowserRouter,
-    Routes,
-    Route
-  } from "react-router-dom";
 
 export function Router(): JSX.Element {
   return (
-    <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App/>}/>
-          <Route path="/about" element={<About/>}/>
-          <Route path="/projects" element={<Projects/>}/>
-        </Routes>
-    </BrowserRouter>
+    <reactRouterDom.BrowserRouter>
+        <reactRouterDom.Routes>
+          <reactRouterDom.Route path="/" element={<App/>}/>
+          <reactRouterDom.Route path="/about" element={<About/>}/>
+          <reactRouterDom.Route path="/projects" element={<Projects/>}/>
+        </reactRouterDom.Routes>
+    </reactRouterDom.BrowserRouter>
   );
 }
