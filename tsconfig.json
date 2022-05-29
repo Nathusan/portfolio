@@ -4,5 +4,6 @@
     "jsx": "react",
     "target": "esnext",
     "module": "commonjs",
+    "include": ["src", "index.d.ts"]
   }
 }

@@ -1,7 +1,7 @@
 @font-face {
     font-family: "CustomFont";
     src: url("specialelite-regular-webfont.woff") format("woff"),
-    }
+}
 
 
 * {
@@ -36,58 +36,58 @@ body {
 
 section {
     position: relative;
-    padding: 10em 10%;
-    background: #2980b9;
+    padding: 5em 10%;
+    background: #011627;
     color: #fff;
     text-align: center;
-  }
+}
 
-  .col-2 .column {
+.col-2 .column {
     width: 49%;
-  }
+}
 
 
-  .column {
+.column {
     display: inline-block;
     vertical-align: top;
-  }
+}
 
 
-  section.color h2 {
+section.color h2 {
     color: #fff;
-  }
+}
 
-  .color {
+.color {
     background: #3498db;
-  }
+}
 
 
-  /*** Individual section styles and separators ***/
+/*** Individual section styles and separators ***/
 
 
-  /* Common style for pseudo-elements */
+/* Common style for pseudo-elements */
 
-  section::after {
+section::after {
     position: absolute;
     content: '';
     pointer-events: none;
-  }
+}
 
 
-  /* Triangles */
-  .ss-style-triangles::after {
+/* Triangles */
+.ss-style-triangles::after {
     left: 50%;
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     -webkit-transform: translateX(-50%) rotate(45deg);
     transform: translateX(-50%) rotate(45deg);
-  }
+}
 
-  .ss-style-triangles::after {
-    bottom: -50px;
+.ss-style-triangles::after {
+    bottom: -1.875rem;
     z-index: 10;
     background: inherit;
-  }
+}
 
 
 
@@ -118,6 +118,8 @@ section {
     justify-content: space-between;
     align-items: center;
     background-color: #011627;
+    position: fixed;
+    z-index: 999;
 
     .nith-title {
         color: #FFF;
@@ -144,28 +146,14 @@ section {
             background-color: #E71D36
         }
     }
-
-
-    // nav {
-    //     color: black;
-    //     margin: 0 auto;
-    //     text-align: center;
-    //     height: 6vh;
-
-    //     a {
-    //         text-align: center;
-    //         text-decoration: none;
-    //         color: inherit;
-    //         border-radius: 2vh;
-    //         padding: 1rem;
-    //         right: 0;
-    //     }
-    // }
 }
 
 #about {
     display: flex;
     justify-content: center;
+    margin: auto;
+    width: 50%;
+    padding: 7rem 2rem;
 
     p {
         text-align: center;
@@ -183,23 +171,21 @@ section {
     }
 }
 
-.divider
-{
-	position: relative;
-	margin-top: 90px;
-	height: 1px;
+.divider {
+    position: relative;
+    margin-top: 90px;
+    height: 1px;
 }
 
-.div-transparent:before
-{
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 5%;
-	right: 5%;
-	width: 90%;
-	height: 1px;
-	background-image: linear-gradient(to right, transparent, rgb(48,49,51), transparent);
+.div-transparent:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, rgb(48, 49, 51), transparent);
 }
 
 
@@ -216,14 +202,28 @@ section {
 
 
 .me {
-    p {
+    display: flex;
+
+    div {
         font-family: 'CustomFont';
+        font-size: 3rem;
+        margin: auto;
+        width: 50%;
+        padding: 0.625rem;
+    }
+
+    .image-container {
+        display: inline-block;
+        position: relative;
+        width: 29.5rem;
+        height: 29.5rem;
+        overflow: hidden;
+        border-radius: 50%;
     }
 
     img {
-        width: 50%;
-        height: 99%;
-        clip-path: circle();
+        width: auto;
+        height: 110%;
     }
 }
 
@@ -234,8 +234,15 @@ section {
     }
 
     .nith-title {
-        width: 100%;
-        content: 'Niths portfolio';
+        text-indent: -99999px;
+        line-height: 0;
+    }
+
+    .nith-title::after {
+        content: 'Niff';
+        text-indent: 0;
+        display: block;
+        line-height: initial;
     }
 
     .navbar-links {

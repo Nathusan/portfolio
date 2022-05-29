@@ -15,13 +15,13 @@ export function App() {
         </div>
 
         <section className='col-2 ss-style-triangles'>
-          <div className='column text' />
-          <div className='column' />
+          <div id='me' className='me'>
+            <div>Nithusan Sivalingarajah</div>
+            <div className='image-container'>
+              <img src={image} alt='Niff' />
+            </div>
+          </div>
         </section>
-      </div>
-      <div id='me' className='me'>
-        <p>Nithusan Sivalingarajah</p>
-        <img src={image} alt='Niff' />
       </div>
       <div id='about' className='about'>
         <p>
