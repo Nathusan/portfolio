@@ -127,6 +127,7 @@ section::after {
         left: 0;
         font-size: 4vh;
         padding: 1rem;
+        visibility: hidden;
     }
 
 
@@ -145,6 +146,19 @@ section::after {
         a:hover {
             background-color: #E71D36
         }
+    }
+}
+
+.projects {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 50%;
+    padding: 7rem 2rem;
+
+    p {
+        text-align: center;
+        width: 30rem;
     }
 }
 
@@ -188,6 +202,20 @@ section::after {
     background-image: linear-gradient(to right, transparent, rgb(48, 49, 51), transparent);
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+
+.home-bar {
+    .nith-title.active {
+        visibility: visible;
+    }
+}
 
 .app>div:nth-child(2)>p:nth-child(1) {
     width: 451px;
@@ -255,6 +283,12 @@ section::after {
 
     .navbar-links.active {
         display: flex;
+    }
+
+    .home-bar {
+        .nith-title.active {
+            visibility: visible;
+        }
     }
 
     .navbar {
