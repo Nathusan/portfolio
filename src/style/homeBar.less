@@ -111,6 +111,47 @@ section::after {
     }
 }
 
+.arrow-indicator {
+    text-align: center;
+    transition: 1s;
+}
+
+.arrow-indicator.active {
+    transition: .5s;
+    -webkit-transform:rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.arrow-indicator2 {
+    text-align: center;
+    transition: 1s;
+}
+
+.arrow-indicator2.active {
+    transition: .5s;
+    -webkit-transform:rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.arrow-indicator1 {
+    text-align: center;
+    transition: 1s;
+}
+
+.arrow-indicator1.active {
+    transition: .5s;
+    -webkit-transform:rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
 .home-bar {
     width: 100%;
     display: flex;
@@ -162,26 +203,138 @@ section::after {
     }
 }
 
+.edu-container {
+    margin-top: 4rem;
+
+     > div {
+        box-shadow: 0px 12px 17px 2px #888;
+        border-radius: 12px;
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .lox {
+        background-color: #011627;
+        color: white;
+    }
+
+    .hav {
+        background-color: #011627;
+        color: white;
+    }
+
+    .hull {
+        background-color: #011627;
+        color: white;
+    }
+
+    .detail {
+        transition: max-height 1s ease-in-out;
+        overflow: hidden;
+        max-height: 0;
+        width: 104%;
+        margin-left: -1rem;
+        padding-bottom: 0rem;
+        margin-bottom: -1rem;
+        background-color: blanchedalmond;
+        border-radius: 0 0 12px 12px;
+        color: black;
+    }
+
+    .detail.active {
+        max-height: 1000px;
+    }
+
+    .hull-detail {
+        transition: max-height 1s ease-in-out;
+        overflow: hidden;
+        max-height: 0;
+        width: 104%;
+        margin-left: -1rem;
+        padding-bottom: 0rem;
+        margin-bottom: -1rem;
+        background-color: blanchedalmond;
+        border-radius: 0 0 12px 12px;
+        color: black;
+    }
+
+    .hull-detail.active {
+        max-height: 1000px;
+    }
+    .hav-detail {
+        transition: max-height 1s ease-in-out;
+        overflow: hidden;
+        max-height: 0;
+        width: 104%;
+        margin-left: -1rem;
+        padding-bottom: 0rem;
+        margin-bottom: -1rem;
+        background-color: blanchedalmond;
+        border-radius: 0 0 12px 12px;
+        color: black;
+    }
+
+    .hav-detail.active {
+        max-height: 1000px;
+    }
+
+}
+
+.user-icon {
+    > svg {
+        transform: scale(1.5);
+    }
+}
+
 #about {
-    display: flex;
+    display: grid;
     justify-content: center;
     margin: auto;
     width: 50%;
     padding: 7rem 2rem;
 
     p {
+        padding-top: 3rem;
         text-align: center;
         width: 30rem;
     }
+
+    .user-icon {
+        transform: scale(2.5);
+        text-align: center;
+    }
 }
 
+#education {
+    display: grid;
+    justify-content: center;
+    margin: auto;
+    width: 50%;
+    padding: 7rem 2rem;
+
+    p {
+        padding-top: 3rem;
+        text-align: center;
+        width: 30rem;
+    }
+
+    .user-icon {
+        transform: scale(2.5);
+        text-align: center;
+    }
+}
 
 .app {
-    div:nth-child(2) {
-        display: flex;
+    .image-container {
+        display: flex !important;
         align-items: center;
         justify-content: center;
         background-color: #011627;
+    }
+
+    .edu-container {
+        background-color: unset !important;
+        display: block !important ;
     }
 }
 
@@ -228,7 +381,6 @@ section::after {
     padding: 1rem;
 }
 
-
 .me {
     display: flex;
 
@@ -267,7 +419,7 @@ section::after {
     }
 
     .nith-title::after {
-        content: 'Niff';
+        content: 'Nith';
         text-indent: 0;
         display: block;
         line-height: initial;
