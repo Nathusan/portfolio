@@ -71,6 +71,7 @@ export class App extends React.Component {
               className='lox'
               onClick={() => {
                 isElementActiveGeneral('detail');
+                isElementActiveGeneral('arrow-indicator1');
               }}
               onKeyPress={() => isElementActiveGeneral('detail')}
               role='button'
