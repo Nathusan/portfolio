@@ -111,12 +111,12 @@ section::after {
     }
 }
 
-.arrow-indicator {
+.arrow-indicator0 {
     text-align: center;
     transition: 1s;
 }
 
-.arrow-indicator.active {
+.arrow-indicator0.active {
     transition: .5s;
     -webkit-transform:rotate(180deg);
     -moz-transform: rotate(180deg);
@@ -228,7 +228,7 @@ section::after {
         color: white;
     }
 
-    .detail {
+    .lox-detail {
         transition: max-height 1s ease-in-out;
         overflow: hidden;
         max-height: 0;
@@ -239,9 +239,13 @@ section::after {
         background-color: blanchedalmond;
         border-radius: 0 0 12px 12px;
         color: black;
+
+        ul > li {
+            list-style-type: none;
+        }
     }
 
-    .detail.active {
+    .lox-detail.active {
         max-height: 1000px;
     }
 
@@ -256,6 +260,10 @@ section::after {
         background-color: blanchedalmond;
         border-radius: 0 0 12px 12px;
         color: black;
+
+        ul > li {
+            list-style-type: none;
+        }
     }
 
     .hull-detail.active {
@@ -272,6 +280,10 @@ section::after {
         background-color: blanchedalmond;
         border-radius: 0 0 12px 12px;
         color: black;
+
+        ul > li {
+            list-style-type: none;
+        }
     }
 
     .hav-detail.active {

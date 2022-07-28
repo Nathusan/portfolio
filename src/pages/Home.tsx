@@ -1,11 +1,42 @@
 import React from 'react';
 import { BiUser } from 'react-icons/bi';
 import { GiGraduateCap } from 'react-icons/gi';
-import { IoChevronDownSharp } from 'react-icons/io5';
 import image from './shot1.jpg';
 import { Homebar } from '../components/HomeBar';
 import '../style/homeBar.less';
-import { isVisibleInViewport, isElementActiveGeneral } from '../components/helpers';
+import { isVisibleInViewport } from '../components/helpers';
+import { DropDownBuilder } from '../components/dropDown';
+
+interface Education {
+  className: string,
+  placeName: string,
+  time: string,
+  grades: string,
+  additional?: string,
+}
+
+const STUDY_LIST: Education [] = [
+  {
+    className: 'lox',
+    placeName: 'Loxford School of Science and Technology / Secondary',
+    time: 'JUNE 2010 - SEPTEMBER 2014',
+    grades: 'GCSE English, Maths, Core Science and Additional Science (BCBB) Addtional 8 GCSEs with Cs and above.',
+    additional: 'German GCSE - A*',
+  },
+  {
+    className: 'hav',
+    placeName: 'Havering Sixth form / College',
+    time: 'SEPTEMBER 2014 - AUGUST 2016',
+    grades: ' AS German, Computing - AC',
+    additional: 'A Level IT - C',
+  },
+  {
+    className: 'hull',
+    placeName: 'Hull University / Computer Science',
+    time: 'SEPTEMBER 2016 - JUNE 2021',
+    grades: ' Studying Computer Science with Games Development. Graudated with a 2:1',
+  },
+];
 
 export class App extends React.Component {
   componentDidMount(): void {
@@ -25,6 +56,7 @@ export class App extends React.Component {
       nithTitle.classList.remove('active');
     }
   }
+
 
   public render() {
     return (
@@ -67,86 +99,12 @@ export class App extends React.Component {
             <GiGraduateCap />
           </div>
           <div className='edu-container'>
-            <div
-              className='lox'
-              onClick={() => {
-                isElementActiveGeneral('detail');
-                isElementActiveGeneral('arrow-indicator1');
-              }}
-              onKeyPress={() => isElementActiveGeneral('detail')}
-              role='button'
-              tabIndex={0}
-            >
-              <h3>Loxford School of Science and Technology / Secondary</h3>
-              <h6>JUNE 2010 - SEPTEMBER 2014</h6>
-              <div className='arrow-indicator1'>
-                <IoChevronDownSharp />
-              </div>
-              <div className='detail'>
-                <ul>
-                  <li>
-                    GCSE English, Maths, Core Science and Additional Science (BCBB),
-                    Addtional 8 GCSEs with Cs and above.
-                  </li>
-                  <li>
-                    German GCSE - A*
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div
-              className='hav'
-              onClick={() => {
-                isElementActiveGeneral('hav-detail');
-                isElementActiveGeneral('arrow-indicator2');
-              }}
-              onKeyPress={() => isElementActiveGeneral('hav-detail')}
-              role='button'
-              tabIndex={0}
-            >
-              <h3>Havering Sixth form / College</h3>
-              <h6>SEPTEMBER 2014 - AUGUST 2016</h6>
-              <div className='arrow-indicator2'>
-                <IoChevronDownSharp />
-              </div>
-              <div className='hav-detail'>
-                <ul>
-                  <li>
-                    AS German, Computing - AC
-                  </li>
-                  <li>
-                    A Level IT C
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div
-              className='hull'
-              onClick={() => {
-                isElementActiveGeneral('hull-detail');
-                isElementActiveGeneral('arrow-indicator');
-              }}
-              onKeyPress={() => isElementActiveGeneral('hull-detail')}
-              role='button'
-              tabIndex={0}
-            >
-              <h3>Hull University / Computer Science</h3>
-              <h6>SEPTEMBER 2016 - JUNE 2021</h6>
-              <div className='arrow-indicator'>
-                <IoChevronDownSharp />
-              </div>
-              <div className='hull-detail'>
-                <ul>
-                  <li>
-                    Studying Computer Science with Games Development.
-                    Graudated with a 2:1
-                  </li>
-                </ul>
-              </div>
-            </div>
+            {DropDownBuilder(STUDY_LIST)}
           </div>
         </div>
+        <div className='divider div-transparent' />
       </div>
+
     );
   }
 }
