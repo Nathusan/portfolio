@@ -14,6 +14,7 @@ export function Homebar(): JSX.Element {
       <nav className='navbar-links'>
         <a href='#about'>About</a>
         <a href='#education'>Education</a>
+        <a href='#work-experience'>Work Experience</a>
       </nav>
       <a className='toggle-button' onClick={onClick}>
         <span className='bar' />

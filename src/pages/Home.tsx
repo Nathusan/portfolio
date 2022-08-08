@@ -1,27 +1,30 @@
 import React from 'react';
+import { IoBriefcaseSharp } from 'react-icons/io5';
+import { AiOutlineInstagram } from 'react-icons/ai';
 import { BiUser } from 'react-icons/bi';
 import { GiGraduateCap } from 'react-icons/gi';
+import { SiVsco, SiLinkedin } from 'react-icons/si';
 import image from './shot1.jpg';
 import { Homebar } from '../components/HomeBar';
 import '../style/homeBar.less';
-import { isVisibleInViewport } from '../components/helpers';
-import { DropDownBuilder } from '../components/dropDown';
+import { navToExternalWebsite, Websites, isElementActive } from '../components/helpers';
+import { DropDownBuilder, DropDownBuilder2 } from '../components/dropDown';
 
-interface Education {
+interface ListInformation {
   className: string,
   placeName: string,
   time: string,
-  grades: string,
+  location?: string,
+  grades?: string,
   additional?: string,
 }
 
-const STUDY_LIST: Education [] = [
+const STUDY_LIST: ListInformation [] = [
   {
-    className: 'lox',
-    placeName: 'Loxford School of Science and Technology / Secondary',
-    time: 'JUNE 2010 - SEPTEMBER 2014',
-    grades: 'GCSE English, Maths, Core Science and Additional Science (BCBB) Addtional 8 GCSEs with Cs and above.',
-    additional: 'German GCSE - A*',
+    className: 'hull',
+    placeName: 'Hull University / Computer Science',
+    time: 'SEPTEMBER 2016 - JUNE 2021',
+    grades: ' Studying Computer Science with Games Development. Graudated with a 2:1',
   },
   {
     className: 'hav',
@@ -31,32 +34,43 @@ const STUDY_LIST: Education [] = [
     additional: 'A Level IT - C',
   },
   {
-    className: 'hull',
-    placeName: 'Hull University / Computer Science',
-    time: 'SEPTEMBER 2016 - JUNE 2021',
-    grades: ' Studying Computer Science with Games Development. Graudated with a 2:1',
+    className: 'lox',
+    placeName: 'Loxford School of Science and Technology / Secondary',
+    time: 'JUNE 2010 - SEPTEMBER 2014',
+    grades: 'GCSE English, Maths, Core Science and Additional Science (BCBB) Addtional 8 GCSEs with Cs and above.',
+    additional: 'German GCSE - A*',
+  },
+];
+
+const WORK_EXPERIENCE: ListInformation[] = [
+  {
+    className: 'wren',
+    placeName: 'Javascript Developer / Wren',
+    time: 'July 2020 - Current',
+    location: 'Barton Upon-Humber',
+    additional: `At Wren, I was thrust straight into one of the most complex engines ever possible created with Javascript to date. In the darkness, as a Junior Javascript developer, I learned important skills on how to efficiently debug and code.
+    During my time at Wren, I worked on a multitude of systems which I got to experience through my work in the Tactical Bug team. Where I helped streamline the reporting and diagnosis of Bugs.
+    Later I was moved to the Products team where I would learn to creatively solve problems and create the features and products the business requested to introduced into planner. At the products team is where I learned the important interaction between Business, Developers and QA. which helped me excel at being team lead. `,
+  },
+  {
+    className: 'made',
+    placeName: 'German Agent / MADE.com',
+    time: 'June 2019 - September 2019',
+    location: 'Canary Wharf',
+    additional: `Worked as a German customer service team member operating on the phone.
+    This job showed me the fast-paced environment of an office.
+    It required good listening and communication skills in order to find the best solution for the customer.`,
   },
 ];
 
 export class App extends React.Component {
   componentDidMount(): void {
-    document.addEventListener('scroll', this.isElementActive, true);
+    document.addEventListener('scroll', isElementActive, true);
   }
 
   componentWillUnmount(): void {
-    document.removeEventListener('scroll', this.isElementActive, true);
+    document.removeEventListener('scroll', isElementActive, true);
   }
-
-  private isElementActive(): void {
-    const nithTitle = document.getElementsByClassName('nith-title')[0];
-
-    if (!isVisibleInViewport() && nithTitle.classList[1] !== 'active') {
-      nithTitle.classList.add('active');
-    } else if (isVisibleInViewport()) {
-      nithTitle.classList.remove('active');
-    }
-  }
-
 
   public render() {
     return (
@@ -75,19 +89,27 @@ export class App extends React.Component {
             </div>
           </section>
         </div>
-        <div id='about' className='about'>
-          <div className='user-icon'>
+        <div id='about' className='containers'>
+          <div className='icon'>
             <BiUser />
           </div>
           <p>
-            I am a Computer Scientist graduate from the University of Hull.
-            I have developed excellent problem solving and teamwork skills through
+            A recent Computer Scientist graduate from the University of Hull.
+            I have developed problem solving and teamwork skills through
             my degree and the past two years,
-            working at Wren as a Javascript Developer.
-            At Wren, I came in as a junior Dev and hit the ground running pretty much immediately,
-            being set free in the bugs team & later being moved to the product team
+            working at Wren Kitchens as a Javascript Developer.
+            <p>&nbsp;</p>
+            At Wren, I came in as a Graduate Javascript Developer and hit the ground running,
+            set free on the bugs team I learned crucial debugging skills.
+            At which I am profecient at now.
+
+            Soon after I was moved to the New Products team
             where all new products are realized,
             engineered and released.
+            <p>&nbsp;</p>
+            This involved talking to the business and helping them vision their products.
+            Working in this Team I learned the importance of clear communication between
+            client and developers.
             For the state of the Art, CAD system for Kitchen Planning developed on Typescript/React.
 
             I am now looking to further grow and develop my skills with you.
@@ -103,8 +125,40 @@ export class App extends React.Component {
           </div>
         </div>
         <div className='divider div-transparent' />
+        <div id='work-experience' className='containers'>
+          <div className='icon'>
+            <IoBriefcaseSharp />
+          </div>
+          <div className='edu-container'>
+            {DropDownBuilder2(WORK_EXPERIENCE)}
+          </div>
+        </div>
+        <footer
+          className='footer'
+        >
+          This Is my first website!
+          <div className='external-website'>
+            <div
+              onClick={() => navToExternalWebsite(Websites.instagram)}
+              role='presentation'
+            >
+              <AiOutlineInstagram />
+            </div>
+            <div
+              onClick={() => navToExternalWebsite(Websites.vsco)}
+              role='presentation'
+            >
+              <SiVsco />
+            </div>
+            <div
+              onClick={() => navToExternalWebsite(Websites.linkedIn)}
+              role='presentation'
+            >
+              <SiLinkedin />
+            </div>
+          </div>
+        </footer>
       </div>
-
     );
   }
 }

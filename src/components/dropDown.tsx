@@ -22,12 +22,39 @@ export function DropDownBuilder(arr): React.ReactElement {
         </div>
         <div className={`${place.className}-detail`}>
           <ul>
-            <li>
-              {place.grades}
-            </li>
-            <li>
-              {place?.additional}
-            </li>
+            {place.grades && <li>{place.grades}</li>}
+            {place.additional && <li>{place?.additional}</li>}
+          </ul>
+        </div>
+      </div>
+    </div>
+  ));
+
+  return result;
+}
+
+export function DropDownBuilder2(arr): React.ReactElement {
+  const result = arr.map((place, key) => (
+    <div key={key!} className={place.className}>
+      <div
+        className={place.className}
+        onClick={() => {
+          isElementActiveGeneral(`${place.className}-detail`);
+          isElementActiveGeneral(`arrow-indicator-${place.className}`);
+        }}
+        onKeyPress={() => isElementActiveGeneral(`${place.className}-detail`)}
+        role='button'
+        tabIndex={key}
+      >
+        <h3>{place.placeName}</h3>
+        <h6>{place.time}</h6>
+        <div className={`arrow-indicator-${place.className}`}>
+          <IoChevronDownSharp />
+        </div>
+        <div className={`${place.className}-detail`}>
+          <ul>
+            {place.grades && <li>{place.grades}</li>}
+            {place.additional && <li>{place?.additional}</li>}
           </ul>
         </div>
       </div>
