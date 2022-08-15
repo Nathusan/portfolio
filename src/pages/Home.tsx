@@ -19,7 +19,7 @@ interface ListInformation {
   additional?: string,
 }
 
-const STUDY_LIST: ListInformation [] = [
+const STUDY_LIST: ListInformation[] = [
   {
     className: 'hull',
     placeName: 'Hull University / Computer Science',
@@ -133,31 +133,36 @@ export class App extends React.Component {
             {DropDownBuilder2(WORK_EXPERIENCE)}
           </div>
         </div>
-        <footer
+        <div
           className='footer'
         >
-          This Is my first website!
-          <div className='external-website'>
+          Hello world, this is my first Website!
+          <div className='footer-container'>
+            <p>Find me here!</p>
             <div
               onClick={() => navToExternalWebsite(Websites.instagram)}
               role='presentation'
             >
               <AiOutlineInstagram />
+              <div>Instagram</div>
             </div>
             <div
               onClick={() => navToExternalWebsite(Websites.vsco)}
               role='presentation'
             >
               <SiVsco />
+              <div>VSCO</div>
             </div>
             <div
               onClick={() => navToExternalWebsite(Websites.linkedIn)}
               role='presentation'
+              className='icons'
             >
               <SiLinkedin />
+              <div>LinkedIn</div>
             </div>
           </div>
-        </footer>
+        </div>
       </div>
     );
   }
