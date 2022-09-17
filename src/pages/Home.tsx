@@ -8,7 +8,7 @@ import image from './shot1.jpg';
 import { Homebar } from '../components/HomeBar';
 import '../style/homeBar.less';
 import { navToExternalWebsite, Websites, isElementActive } from '../components/helpers';
-import { DropDownBuilder, DropDownBuilder2 } from '../components/dropDown';
+import { DropDownBuilder } from '../components/dropDown';
 
 interface ListInformation {
   className: string,
@@ -94,23 +94,25 @@ export class App extends React.Component {
             <BiUser />
           </div>
           <p>
-            A recent Computer Scientist graduate from the University of Hull.
+            Computer Science graduate from the University of Hull.
             I have developed problem solving and teamwork skills through
             my degree and the past two years,
             working at Wren Kitchens as a Javascript Developer.
             <p>&nbsp;</p>
-            At Wren, I came in as a Graduate Javascript Developer and hit the ground running,
-            set free on the bugs team I learned crucial debugging skills.
-            At which I am profecient at now.
+            At Wren, I came in as a Graduate Javascript Developer and hit the ground running.
+            Set free on the bugs team I learned crucial debugging skills, which helped me understand
+            how to write robust code,
+            this being especially needed in a loosely typed language that is Javascript.
 
             Soon after I was moved to the New Products team
             where all new products are realized,
             engineered and released.
             <p>&nbsp;</p>
-            This involved talking to the business and helping them vision their products.
+            This involved interaction with key business Stake holders and helping them vision
+            their products.
             Working in this Team I learned the importance of clear communication between
             client and developers.
-            For the state of the Art, CAD system for Kitchen Planning developed on Typescript/React.
+            One of a kind CAD system for Kitchen Planning developed on Typescript/React.
 
             I am now looking to further grow and develop my skills with you.
           </p>
@@ -124,15 +126,15 @@ export class App extends React.Component {
             {DropDownBuilder(STUDY_LIST)}
           </div>
         </div>
-        <div className='divider div-transparent' />
         <div id='work-experience' className='containers'>
           <div className='icon'>
             <IoBriefcaseSharp />
           </div>
           <div className='edu-container'>
-            {DropDownBuilder2(WORK_EXPERIENCE)}
+            {DropDownBuilder(WORK_EXPERIENCE)}
           </div>
         </div>
+        <div className='divider div-transparent' />
         <div
           className='footer'
         >
