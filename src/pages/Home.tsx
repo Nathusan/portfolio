@@ -10,7 +10,7 @@ import '../style/homeBar.less';
 import { navToExternalWebsite, Websites, isElementActive } from '../components/helpers';
 import { DropDownBuilder } from '../components/dropDown';
 
-interface ListInformation {
+export interface ListInformation {
   className: string,
   placeName: string,
   time: string,
@@ -24,7 +24,7 @@ const STUDY_LIST: ListInformation[] = [
     className: 'hull',
     placeName: 'Hull University / Computer Science',
     time: 'SEPTEMBER 2016 - JUNE 2021',
-    grades: ' Studying Computer Science with Games Development. Graudated with a 2:1',
+    grades: 'Studying Computer Science with Games Development. Graudated with a 2:1',
   },
   {
     className: 'hav',
@@ -130,11 +130,10 @@ export class App extends React.Component {
           <div className='icon'>
             <IoBriefcaseSharp />
           </div>
-          <div className='edu-container'>
-            {DropDownBuilder(WORK_EXPERIENCE)}
+          <div className='work-container'>
+            {DropDownBuilder(WORK_EXPERIENCE, 5)}
           </div>
         </div>
-        <div className='divider div-transparent' />
         <div
           className='footer'
         >

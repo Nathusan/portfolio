@@ -1,15 +1,18 @@
 import React from 'react';
 import { IoChevronDownSharp } from 'react-icons/io5';
+import { ListInformation } from '../pages/Home';
 import { isElementActiveGeneral } from './helpers';
 
-export function DropDownBuilder(arr): React.ReactElement {
+export function DropDownBuilder(arr: ListInformation[], index?: number): React.ReactElement[] {
+  const indexSafety = index || 0;
+
   const result = arr.map((place, key) => (
-    <div key={key!} className={place.className}>
+    <div key={key! + indexSafety} className={place.className}>
       <div
         className={place.className}
         onClick={() => {
           isElementActiveGeneral(`${place.className}-detail`);
-          isElementActiveGeneral(`arrow-indicator${key}`);
+          isElementActiveGeneral(`arrow-indicator${key + indexSafety}`);
         }}
         onKeyPress={() => isElementActiveGeneral(`${place.className}-detail`)}
         role='button'
@@ -17,14 +20,14 @@ export function DropDownBuilder(arr): React.ReactElement {
       >
         <h3>{place.placeName}</h3>
         <h6>{place.time}</h6>
-        <div className={`arrow-indicator${key}`}>
+        <div className={`arrow-indicator${key + indexSafety}`}>
           <IoChevronDownSharp />
         </div>
         <div className={`${place.className}-detail`}>
-          <ul>
+          <div>
             {place.grades && <li>{place.grades}</li>}
             {place.additional && <li>{place?.additional}</li>}
-          </ul>
+          </div>
         </div>
       </div>
     </div>

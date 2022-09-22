@@ -39,6 +39,7 @@ section {
     background: #011627;
     color: #fff;
     text-align: center;
+    box-shadow: 0 12px 17px 2px #888;
 }
 
 .col-2 .column {
@@ -80,6 +81,7 @@ section::after {
     height: 60px;
     -webkit-transform: translateX(-50%) rotate(45deg);
     transform: translateX(-50%) rotate(45deg);
+    box-shadow: 7px 7px 6px 0px #888;
 }
 
 .ss-style-triangles::after {
@@ -110,68 +112,20 @@ section::after {
     }
 }
 
-.arrow-indicator0 {
+.arrow-indicator0,
+.arrow-indicator1,
+.arrow-indicator2,
+.arrow-indicator5,
+.arrow-indicator6 {
     text-align: center;
     transition: 1s;
 }
 
-.arrow-indicator0.active {
-    transition: .5s;
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg);
-}
-
-.arrow-indicator2 {
-    text-align: center;
-    transition: 1s;
-}
-
-.arrow-indicator2.active {
-    transition: .5s;
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg);
-}
-
-.arrow-indicator1 {
-    text-align: center;
-    transition: 1s;
-}
-
-.arrow-indicator1.active {
-    transition: .5s;
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg);
-}
-
-.arrow-indicator-wren {
-    text-align: center;
-    transition: 1s;
-}
-
-.arrow-indicator-wren.active {
-    transition: .5s;
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg);
-}
-
-.arrow-indicator-made {
-    text-align: center;
-    transition: 1s;
-}
-
-.arrow-indicator-made.active {
+.arrow-indicator0.active,
+.arrow-indicator2.active,
+.arrow-indicator1.active,
+.arrow-indicator5.active,
+.arrow-indicator6.active {
     transition: .5s;
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
@@ -235,7 +189,8 @@ section::after {
     }
 }
 
-.edu-container {
+.edu-container,
+.work-container {
     margin-top: 4rem;
 
     >div {
@@ -245,123 +200,19 @@ section::after {
         margin-bottom: 2rem;
     }
 
-    .lox {
-        background-color: #011627;
-        color: white;
-    }
-
-    .hav {
-        background-color: #011627;
-        color: white;
-    }
-
-    .hull {
-        background-color: #011627;
-        color: white;
-    }
-
-    .wren {
-        background-color: #011627;
-        color: white;
-    }
-
-    .wren-detail {
-        transition: max-height 1s ease-in-out;
-        overflow: hidden;
-        max-height: 0;
-        margin-right: -1rem;
-        margin-left: -1rem;
-        padding-bottom: 0rem;
-        margin-bottom: -1rem;
-        background-color: blanchedalmond;
-        border-radius: 0 0 12px 12px;
-        color: black;
-        overflow: scroll;
-        font-size: 1.5vh;
-
-        ul>li {
-            list-style-type: none;
-        }
-    }
-
-    .wren-detail.active {
-        max-height: 1000px;
-    }
-
+    .lox,
+    .hav,
+    .hull,
+    .wren,
     .made {
         background-color: #011627;
         color: white;
     }
 
-    .made-detail {
-        transition: max-height 1s ease-in-out;
-        overflow: hidden;
-        max-height: 0;
-        margin-right: -1rem;
-        margin-left: -1rem;
-        padding-bottom: 0rem;
-        margin-bottom: -1rem;
-        background-color: blanchedalmond;
-        border-radius: 0 0 12px 12px;
-        color: black;
-        overflow: scroll;
-        font-size: 1.5vh;
-
-        ul>li {
-            list-style-type: none;
-        }
-    }
-
-    .made-detail.active {
-        max-height: 1000px;
-    }
-
-    .lox-detail {
-        transition: max-height 1s ease-in-out;
-        overflow: hidden;
-        max-height: 0;
-        margin-left: -1rem;
-        padding-bottom: 0rem;
-        margin-bottom: -1rem;
-        margin-right: -1rem;
-        background-color: blanchedalmond;
-        border-radius: 0 0 12px 12px;
-        color: black;
-        overflow: scroll;
-        font-size: 1.5vh;
-
-        ul>li {
-            list-style-type: none;
-        }
-    }
-
-    .lox-detail.active {
-        max-height: 1000px;
-    }
-
-    .hull-detail {
-        transition: max-height 1s ease-in-out;
-        overflow: hidden;
-        max-height: 0;
-        padding-bottom: 0rem;
-        margin-left: -1rem;
-        margin-bottom: -1rem;
-        margin-right: -1rem;
-        background-color: blanchedalmond;
-        border-radius: 0 0 12px 12px;
-        color: black;
-        overflow: scroll;
-        font-size: 1.5vh;
-
-        ul>li {
-            list-style-type: none;
-        }
-    }
-
-    .hull-detail.active {
-        max-height: 1000px;
-    }
-
+    .wren-detail,
+    .made-detail,
+    .lox-detail,
+    .hull-detail,
     .hav-detail {
         transition: max-height 1s ease-in-out;
         overflow: hidden;
@@ -376,15 +227,23 @@ section::after {
         overflow: scroll;
         font-size: 1.5vh;
 
+        div {
+            margin: 1rem;
+            list-style: none;
+        }
+
         ul>li {
             list-style-type: none;
         }
     }
 
+    .wren-detail.active,
+    .made-detail.active,
+    .lox-detail.active,
+    .hull-detail.active,
     .hav-detail.active {
         max-height: 1000px;
     }
-
 }
 
 .user-icon {
