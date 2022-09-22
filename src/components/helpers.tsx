@@ -10,17 +10,14 @@ export function isVisibleInViewport(): boolean {
   const bounding = myElement.getBoundingClientRect();
   const myElementHeight = myElement.offsetHeight;
   const myElementWidth = myElement.offsetWidth;
+  const isInbound = bounding.top >= -myElementHeight + 30
+  && bounding.left >= -myElementWidth
+  && bounding.right
+    <= (window.innerWidth || document.documentElement.clientWidth) + myElementWidth
+  && bounding.bottom
+    <= (window.innerHeight || document.documentElement.clientHeight) + myElementHeight;
 
-  if (
-    bounding.top >= -myElementHeight
-        && bounding.left >= -myElementWidth
-        && bounding.right
-          <= (window.innerWidth || document.documentElement.clientWidth) + myElementWidth
-        && bounding.bottom
-          <= (window.innerHeight || document.documentElement.clientHeight) + myElementHeight) {
-    return true;
-  }
-  return false;
+  return isInbound;
 }
 
 export function isElementActiveGeneral(elementClassName: string): void {
