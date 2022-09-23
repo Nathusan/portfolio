@@ -1,21 +1,208 @@
-# This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
+# This code is licensed from CircleCI to the user under the MIT license.
+# See here for details: https://circleci.com/developer/orbs/licensing
 version: 2.1
 
-# Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
-# See: https://circleci.com/docs/2.0/orb-intro/
-orbs:
-  node: circleci/node@4.7
+description: Typescript specific jobs.
 
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
-    jobs:
-      - node/test:
-          # This is the node version to use for the `cimg/node` tag
-          # Relevant tags can be found on the CircleCI Developer Hub
-          # https://circleci.com/developer/images/image/cimg/node
-          version: '16.10'
-          # If you are using yarn, change the line below from "npm" to "yarn"
-          pkg-manager: npm
+executors:
+  node:
+    docker:
+      - image: node:<< parameters.version >>
+    parameters:
+      version:
+        default: 14.18.1-alpine
+        description: The node container version to use.
+        type: string
+
+commands:
+  restore-cache-and-install-dependencies-if-required:
+    parameters:
+      additional-steps:
+        default: []
+        description: Any additional steps that need to be run before the `yarn command`.
+        type: steps
+      node-modules-cache-key:
+        description: |
+          The cache key for the node modules cache.
+          This is passed as a parameter so you can increment a cache version inside a CircleCI config file
+          if you need to invalidate the cache for any reason.
+        type: string
+    steps:
+      - restore_cache:
+          key: << parameters.node-modules-cache-key >>
+      - when:
+          condition: << parameters.additional-steps >>
+          steps: << parameters.additional-steps >>
+      - run:
+          name: Install dependencies if required
+          command: |
+            if [[ -f $BASH_ENV ]]; then
+              source $BASH_ENV
+            fi
+            if [ ! -d "node_modules" ]; then yarn; fi
+      - save_cache:
+          key: << parameters.node-modules-cache-key >>
+          paths: ./node_modules
+
+jobs:
+  build:
+    description: Compile your project.
+    executor: << parameters.executor >>
+    parameters:
+      additional-steps:
+        default: []
+        description: Any addtional steps that need to be run before the `yarn command`.
+        type: steps
+      compiled-javascript-cache-key:
+        default: ""
+        description: |
+          A cache key to store the compiled javascript created by the build
+          command. If no key is specified, nothing will be cached. If you
+          do specify a key, then you should also provide the path to be
+          cached.
+        type: string
+      compiled-javascript-cache-path:
+        default: "./src"
+        description: |
+          The path to the output of your typescript compile command, so you can
+          user the compiled javascript later. Defaults to "./src" directory.
+        type: string
+      container-dependencies:
+        default: ""
+        description: Any additional dependencies to install in the container before running the build job.
+        type: string
+      executor:
+        default: node
+        description: The executor you want to use to run the build.
+        type: executor
+      node-modules-cache-key:
+        description: |
+          The cache key for the node modules cache.
+          This is passed as a parameter so you can increment a cache version inside a CircleCI config file
+          if you need to invalidate the cache for any reason.
+        type: string
+      working-directory:
+        default: "~"
+        description: |
+          The working directory for this job. Defaults to the CircleCI default
+          "~", but it must be set if using the
+          `compiled-javascript-cache` related parameters.
+        type: string
+    steps:
+      - run:
+          name: Install container dependencies
+          command: apk update && apk add ca-certificates << parameters.container-dependencies >>
+      - checkout:
+          path: << parameters.working-directory >>
+      - restore-cache-and-install-dependencies-if-required:
+          additional-steps: << parameters.additional-steps >>
+          node-modules-cache-key: << parameters.node-modules-cache-key >>
+      - run:
+          name: Compile
+          command: ./node_modules/.bin/tsc
+      - when:
+          condition: << parameters.compiled-javascript-cache-key >>
+          steps:
+            - save_cache:
+                key: << parameters.compiled-javascript-cache-key >>
+                paths:
+                  - << parameters.compiled-javascript-cache-path >>
+    working_directory: << parameters.working-directory >>
+
+  check-formatting:
+    description: Check the formatting matches the specified prettier rules.
+    executor: << parameters.executor >>
+    parameters:
+      container-dependencies:
+        default: ""
+        description: Any additional dependencies to install in the container before running the build job.
+        type: string
+      executor:
+        default: node
+        description: The executor you want to use to run the formatting checks.
+        type: executor
+      node-modules-cache-key:
+        description: |
+          The cache key for the node modules cache.
+          This is passed as a parameter so you can increment a cache version inside a CircleCI config file
+          if you need to invalidate the cache for any reason.
+        type: string
+      prettier-args:
+        default: "./**/*.ts"
+        description: |
+          Arguments to pass to the prettier command.
+          If you don't pass any arguments here all files will be checked.
+        type: string
+      working-directory:
+        default: "~"
+        description: |
+          The working directory for this job. Defaults to the CircleCI default
+          "~", but it must be set if using the
+          `compiled-javascript-cache` related parameters.
+        type: string
+    steps:
+      - checkout:
+          path: << parameters.working-directory >>
+      - run:
+          name: Install container dependencies
+          command: apk update && apk add ca-certificates << parameters.container-dependencies >>
+      - restore-cache-and-install-dependencies-if-required:
+          node-modules-cache-key: << parameters.node-modules-cache-key >>
+      - run:
+          name: Check format
+          command: ./node_modules/.bin/prettier --list-different << parameters.prettier-args >>
+    working_directory: << parameters.working-directory >>
+
+  lint:
+    description: Lint the project with tslint or eslint.
+    executor: << parameters.executor >>
+    parameters:
+      container-dependencies:
+        default: ""
+        description: Any additional dependencies to install in the container before running the build job.
+        type: string
+      executor:
+        default: node
+        description: The executor you want to use to run the linting in.
+        type: executor
+      linter:
+        default: "tslint"
+        description: The lint tool you want to use.
+        enum: ["eslint", "tslint"]
+        type: enum
+      node-modules-cache-key:
+        description: |
+          The cache key for the node modules cache.
+          This is passed as a parameter so you can increment a cache version inside a CircleCI config file
+          if you need to invalidate the cache for any reason.
+        type: string
+      lint-args:
+        default: ""
+        description: |
+          Arguments to pass to the lint command.
+          If you don't pass any arguments here all files will be linted.
+        type: string
+      working-directory:
+        default: "~"
+        description: |
+          The working directory for this job. Defaults to the CircleCI default
+          "~", but it must be set if using the
+          `compiled-javascript-cache` related parameters.
+        type: string
+    steps:
+      - checkout:
+          path: << parameters.working-directory >>
+      - run:
+          name: Install container dependencies
+          command: apk update && apk add ca-certificates << parameters.container-dependencies >>
+      - restore-cache-and-install-dependencies-if-required:
+          node-modules-cache-key: << parameters.node-modules-cache-key >>
+      - run:
+          name: Lint files
+          command: |
+            if [ << parameters.linter >> == "tslint" ]; then
+              ./node_modules/.bin/tslint --project tsconfig.json --config tslint.json << parameters.lint-args >>
+            else
+              ./node_modules/.bin/eslint << parameters.lint-args >>
+            fi
+    working_directory: << parameters.working-directory >>
