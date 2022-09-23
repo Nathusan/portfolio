@@ -112,7 +112,12 @@ export class App extends React.Component {
             their products.
             Working in this Team I learned the importance of clear communication between
             client and developers.
-            One of a kind CAD system for Kitchen Planning developed on Typescript/React.
+
+            I started taking on Scrum responsibities within the team
+            and was furtunate enough to get the opportunity to take the
+            APMG Certified Scrum master training.
+
+            I have had the oportunity have my own project as technical lead and Scrum master.
 
             I am now looking to further grow and develop my skills with you.
           </p>
