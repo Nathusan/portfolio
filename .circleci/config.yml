@@ -9,7 +9,15 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: npm
-      - run:
+      - run: |
+          if [ -e yarn.lock ]; then
+          yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
+          npm ci
+          else
+          npm i
+          fi
+          npm run build
           command: npm run build
           name: Build app
       - persist_to_workspace:
