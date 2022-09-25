@@ -5,7 +5,7 @@ orbs:
 jobs:
   build: # this can be any name you choose
     docker:
-        - image: cimg/node:18.9.1
+        - image: cimg/node:16.17.1
     working_directory: ~/repo
     steps:
         - checkout
