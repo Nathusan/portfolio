@@ -14,4 +14,6 @@ workflows:
   test_my_app:
     jobs:
       - build
-     
+      - node/run:
+          pkg-manager: npm 
+          npm-run: npm run build 
