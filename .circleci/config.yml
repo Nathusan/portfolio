@@ -7,9 +7,9 @@ jobs:
     docker:
       - image: circleci/node:10.8.0
     steps:
-      - checkout
       - node/install:
             node-install-dir: ~ 
+      - checkout
 
 workflows:
   test_my_app:
