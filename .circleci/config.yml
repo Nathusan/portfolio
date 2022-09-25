@@ -5,17 +5,33 @@ orbs:
 jobs:
   build: # this can be any name you choose
     docker:
-      - image: circleci/node:10.8.0
+        - image: circleci/node:12.18.3
+    working_directory: ~/repo
     steps:
-      - node/install:
-            node-install-dir: ~ 
-      - checkout
+        - checkout
+        - restore_cache:
+            keys:
+            - cache-{{ checksum "package.json" }}
+        - run:
+              name: Install Dependencies
+              command: npm ci
+        - save_cache:
+            key: cache-{{ checksum "package.json" }}
+            paths:
+            - node_modules
+        - run:
+              name: Run Build
+              command: npm run build
+      # - node/install:
+      #     node-install-dir: ~ 
+      # - node/run:
+      #     pkg-manager: npm 
+      #     npm-run: build 
+      
 
 workflows:
   test_my_app:
     jobs:
       - build
-      - node/run:
-          pkg-manager: npm 
-          npm-run: build 
+      
 
