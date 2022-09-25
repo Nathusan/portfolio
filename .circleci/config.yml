@@ -15,5 +15,5 @@ workflows:
     jobs:
       - build
       - node/run:
-          pkg-manager: npm 
-          npm-run: npm run build 
+            pkg-manager: npm 
+            npm-run: npm run build
