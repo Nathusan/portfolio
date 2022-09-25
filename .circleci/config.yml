@@ -8,6 +8,7 @@ jobs:
     steps:
       - checkout
       - node/install-packages:
+          app-dir: '~/'
           pkg-manager: npm
       - run: |
           if [ -e yarn.lock ]; then
