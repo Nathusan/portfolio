@@ -7,24 +7,8 @@ jobs:
     executor: node/default # use the default executor defined within the orb
     steps:
       - checkout
-      - node/install-packages:
-          app-dir: y
-          pkg-manager: npm
-      - run: |
-          if [ -e yarn.lock ]; then
-          yarn install --frozen-lockfile
-          elif [ -e package-lock.json ]; then
-          npm ci
-          else
-          npm i
-          fi
-          npm run build
-          command: npm run build
-          name: Build app
-      - persist_to_workspace:
-          root: ~/project
-          paths:
-            - .
+      - node/install:
+            node-install-dir: ~ 
 
 workflows:
   test_my_app:
