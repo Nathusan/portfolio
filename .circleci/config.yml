@@ -22,12 +22,10 @@ jobs:
         - run:
               name: Run Build
               command: npm run build
-      # - node/install:
-      #     node-install-dir: ~ 
-      # - node/run:
-      #     pkg-manager: npm 
-      #     npm-run: build 
-      
+        - run: 
+            name: firebase deploy
+            command: npm install --save-dev firebase-tools
+        - run: npm run firebase-deploy -- --token=$FIREBASE_DEPLOY_TOKEN
 
 workflows:
   test_my_app:
