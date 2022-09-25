@@ -8,7 +8,9 @@
     "start": "rm -rf .cache && parcel src/index.html",
     "build": "parcel build src/index.html",
     "cleanup": "rm -rf .parcel-cache dist",
-    "dev": "(parcel ./src/index.html) & parcel watch ./src/index.html --no-cache"
+    "dev": "(parcel ./src/index.html) & parcel watch ./src/index.html --no-cache",
+    "firebase-deploy": "firebase deploy"
+
   },
   "author": "",
   "license": "ISC",
