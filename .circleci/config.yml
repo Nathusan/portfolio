@@ -27,7 +27,7 @@ jobs:
             command: npm install --save-dev firebase-tools
         - run:
             name: please deploy
-            command: npx run firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+            command: ./node_modules/.bin/firebase deploy --token=1//03QcAsIr52Xg1CgYIARAAGAMSNwF-L9Ir5Lpm2yihlyB3QWq-wTOmhraUnzK4QmKICwNjg1zlT1a6PrsFQlnVqFeBcBtOQGDzZKs --only hosting
 
 
 workflows:
