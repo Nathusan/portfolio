@@ -6,28 +6,30 @@ jobs:
       - image: cimg/node:18.9.1
     steps:
       - checkout
-      - run:
-          name: Update NPM
-          command: "sudo npm install -g npm"
+      # - run:
+      #     name: Update NPM
+      #     command: "sudo npm install -g npm"
       - restore_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Install Dependencies
-          command: npm install
-      - run: npm install --save-dev firebase-tools
+          command: npm ci
+      - run:
+          name: Install Firebase tools localy
+          command: npm i -D firebase-tools
       - save_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
+      # - run:
+      #     name: Build application for production
+      #     command: npm run build
       - run:
-          name: Build application for production
-          command: npm run build
+          name: Pick Project
+          command: ./node_modules/.bin/firebase use portfolio --token=$FIREBASE_DEPLOY_TOKEN
       - run:
-          name: print token
-          command: firebase use default --token
-      - run:
-          name: Deploy app to Firebase
-          command: ./node_modules/.bin/firebase deploy --token $FIREBASE_DEPLOY_TOKEN
+          name: Firebase Deploy
+          command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN" --only hosting -m "$CIRCLE_BUILD_NUM"
 workflows:
   build-and-deploy:
     jobs:
