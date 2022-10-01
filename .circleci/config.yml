@@ -29,7 +29,7 @@ jobs:
           command: ./node_modules/.bin/firebase use portfolio --token=$FIREBASE_DEPLOY_TOKEN
       - run:
           name: Firebase Deploy
-          command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN" --only hosting -m "$CIRCLE_BUILD_NUM"
+          command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_DEPLOY_TOKEN" --only hosting -m "$CIRCLE_BUILD_NUM"
 workflows:
   build-and-deploy:
     jobs:
