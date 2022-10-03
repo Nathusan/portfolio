@@ -1,5 +1,5 @@
 import * as React from 'react';
-import '../style/homeBar.less';
+import '../style/main.less';
 
 export function Homebar(): JSX.Element {
   const onClick = () => {

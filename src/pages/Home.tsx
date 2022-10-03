@@ -4,9 +4,9 @@ import { AiOutlineInstagram } from 'react-icons/ai';
 import { BiUser } from 'react-icons/bi';
 import { GiGraduateCap } from 'react-icons/gi';
 import { SiVsco, SiLinkedin } from 'react-icons/si';
-import image from './shot1.jpg';
+import image from '../img/shot1.jpg';
 import { Homebar } from '../components/HomeBar';
-import '../style/homeBar.less';
+import '../style/main.less';
 import { navToExternalWebsite, Websites, isElementActive } from '../components/helpers';
 import { DropDownBuilder } from '../components/dropDown';
 
@@ -48,9 +48,27 @@ const WORK_EXPERIENCE: ListInformation[] = [
     placeName: 'Javascript Developer / Wren',
     time: 'July 2020 - Current',
     location: 'Barton Upon-Humber',
-    additional: `At Wren, I was thrust straight into one of the most complex engines ever possible created with Javascript to date. In the darkness, as a Junior Javascript developer, I learned important skills on how to efficiently debug and code.
-    During my time at Wren, I worked on a multitude of systems which I got to experience through my work in the Tactical Bug team. Where I helped streamline the reporting and diagnosis of Bugs.
-    Later I was moved to the Products team where I would learn to creatively solve problems and create the features and products the business requested to introduced into planner. At the products team is where I learned the important interaction between Business, Developers and QA. which helped me excel at being team lead. `,
+    additional: `At Wren, I came in as a Graduate Javascript Developer and hit the ground running.
+    Set free on the bugs team I learned crucial debugging skills, which helped me understand
+    how to write robust code,
+    this being especially needed in a loosely typed language that is Javascript.
+
+    Soon after I was moved to the New Products team
+    where all new products are realized,
+    engineered and released.
+
+    This involved interaction with key business Stake holders and helping them vision
+    their products.
+    Working in this Team I learned the importance of clear communication between
+    client and developers.
+
+    I started taking on Scrum responsibities within the team
+    and was furtunate enough to get the opportunity to take the
+    APMG Certified Scrum master training.
+
+    I have had the oportunity have my own project as technical lead and Scrum master.
+
+    I am now looking to further grow and develop my skills with you.`,
   },
   {
     className: 'made',
@@ -94,32 +112,16 @@ export class App extends React.Component {
             <BiUser />
           </div>
           <p>
-            Computer Science graduate from the University of Hull.
-            I have developed problem solving and teamwork skills through
-            my degree and the past two years,
-            working at Wren Kitchens as a Javascript Developer.
+            24 years old, lover of Nature, Always exploring.
+            3+ years of experience designing stuff for screens
+            and working on backend.
             <p>&nbsp;</p>
-            At Wren, I came in as a Graduate Javascript Developer and hit the ground running.
-            Set free on the bugs team I learned crucial debugging skills, which helped me understand
-            how to write robust code,
-            this being especially needed in a loosely typed language that is Javascript.
 
-            Soon after I was moved to the New Products team
-            where all new products are realized,
-            engineered and released.
-            <p>&nbsp;</p>
-            This involved interaction with key business Stake holders and helping them vision
-            their products.
-            Working in this Team I learned the importance of clear communication between
-            client and developers.
+            A strong, structured, efficient, detail- and impact-oriented Developer,
+            with a range of frontend skills.
 
-            I started taking on Scrum responsibities within the team
-            and was furtunate enough to get the opportunity to take the
-            APMG Certified Scrum master training.
+            Currently working as a Dev @ Wren Kitchens
 
-            I have had the oportunity have my own project as technical lead and Scrum master.
-
-            I am now looking to further grow and develop my skills with you.
           </p>
         </div>
         <div className='divider div-transparent' />

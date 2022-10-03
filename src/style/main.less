@@ -1,8 +1,12 @@
 @font-face {
-    font-family: "CustomFont";
-    src: url("specialelite-regular-webfont.woff") format("woff"),
+    font-family: "text2";
+    src: url("Sk-Modernist-Regular.otf")  format("opentype"),
 }
 
+@font-face {
+    font-family: 'text1';
+    src: url('Bigilla-Bold.otf') format('opentype'),
+}
 
 * {
     box-sizing: border-box;
@@ -15,7 +19,7 @@ body {
     justify-content: center;
     margin: 0;
     background: blanchedalmond;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'text2';
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
@@ -42,8 +46,12 @@ section {
     box-shadow: 0 12px 17px 2px #888;
 }
 
-.col-2 .column {
-    width: 49%;
+.col-2 {
+    background-image: repeating-linear-gradient(36deg, rgba(255,255,255, 0.1), rgba(255,255,255, 0.1) 1px, transparent 0px, transparent 2px);
+
+    .column {
+        width: 49%;
+    }
 }
 
 
@@ -147,7 +155,7 @@ section::after {
 
     .nith-title {
         color: #FFF;
-        font-family: 'Libre Baskerville', serif;
+        font-family: 'text1';
         left: 0;
         font-size: 3vh;
         visibility: hidden;
@@ -160,7 +168,7 @@ section::after {
 
     nav {
         a {
-            font-family: 'Libre Baskerville', serif;
+            font-family: 'text2';
             font-size: 2.5vh;
             padding: 1.3rem;
             color: #FDFFFC;
@@ -314,10 +322,8 @@ section::after {
     padding: 7rem 2rem;
 
     p {
-        // padding-top: 3rem;
-        text-align: center;
         width: 44rem;
-        font-size: 1.7vh;
+        font-size: 3.7vh;
     }
 
     .icon {
@@ -366,7 +372,7 @@ section::after {
 
 .home-bar {
     .nith-title.active {
-        font-family: CustomFont;
+        font-family: 'text1';
         visibility: visible;
     }
 }
@@ -386,8 +392,8 @@ section::after {
     display: flex;
 
     div {
-        font-family: 'CustomFont';
-        font-size: 291.2%;
+        font-family: 'text1';
+        font-size: 456.2%;
         margin: auto;
         width: 50%;
         padding: 0.625rem;
