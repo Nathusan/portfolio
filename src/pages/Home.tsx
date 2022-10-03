@@ -112,14 +112,16 @@ export class App extends React.Component {
             <BiUser />
           </div>
           <p>
-            24 years old, lover of Nature, Always exploring.
+            24 years old, lover of Cars, Movies, Books and Chess.
+            Always exploring and learning.
+
             3+ years of experience designing stuff for screens
             and working on backend.
-            <p>&nbsp;</p>
 
             A strong, structured, efficient, detail- and impact-oriented Developer,
             with a range of frontend skills.
 
+            <p>&nbsp;</p>
             Currently working as a Dev @ Wren Kitchens
 
           </p>
