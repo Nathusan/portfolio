@@ -113,15 +113,16 @@ export class App extends React.Component {
           </div>
           <p>
             24 years old, lover of Nature, Always exploring.
+            <br />
+            <br />
             3+ years of experience designing stuff for screens
             and working on backend.
-            <p>&nbsp;</p>
-
+            <br />
+            <br />
             A strong, structured, efficient, detail- and impact-oriented Developer,
             with a range of frontend skills.
-
+            <br />
             Currently working as a Dev @ Wren Kitchens
-
           </p>
         </div>
         <div className='divider div-transparent' />
@@ -150,6 +151,7 @@ export class App extends React.Component {
             <div
               onClick={() => navToExternalWebsite(Websites.instagram)}
               role='presentation'
+              className='presentation'
             >
               <AiOutlineInstagram />
               <div>Instagram</div>
@@ -157,6 +159,7 @@ export class App extends React.Component {
             <div
               onClick={() => navToExternalWebsite(Websites.vsco)}
               role='presentation'
+              className='presentation'
             >
               <SiVsco />
               <div>VSCO</div>
@@ -164,7 +167,7 @@ export class App extends React.Component {
             <div
               onClick={() => navToExternalWebsite(Websites.linkedIn)}
               role='presentation'
-              className='icons'
+              className='presentation'
             >
               <SiLinkedin />
               <div>LinkedIn</div>

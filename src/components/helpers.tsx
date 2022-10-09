@@ -26,7 +26,7 @@ export function isElementActiveGeneral(elementClassName: string): void {
   nithTitle.classList.toggle('active');
 }
 
-export function navToExternalWebsite(website: Websites): string {
+export function navToExternalWebsite(website: Websites): void {
   let link: string;
 
   switch (website) {
@@ -44,7 +44,7 @@ export function navToExternalWebsite(website: Websites): string {
   }
 
   // eslint-disable-next-line no-return-assign
-  return window.location.href = link;
+  window.open(link, '_blank');
 }
 
 export function isElementActive(): void {
