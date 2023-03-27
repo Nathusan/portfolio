@@ -112,17 +112,22 @@ export class App extends React.Component {
             <BiUser />
           </div>
           <p>
-            24 years old, lover of Nature, Always exploring.
-            <br />
-            <br />
-            3+ years of experience designing stuff for screens
-            and working on backend.
-            <br />
-            <br />
-            A strong, structured, efficient, detail and impact-oriented Developer,
-            with a range of frontend and backend skills.
-            <br />
-            Currently working as a Dev @ Wren Kitchens
+            As a 24-year-old computer scientist with a love for nature and a passion for exploring,
+            I bring a unique perspective to my work as a Developer.
+            With over 3 years of experience designing user interfaces and developing back-end
+            systems, I have honed my skills in both front-end and back-end development.
+
+            As a detail-oriented and impact-driven developer,
+            I take pride in my ability to create strong,
+            structured, and efficient code.
+            I am constantly seeking new challenges and opportunities to expand my skills and
+            knowledge, and I approach each project with enthusiasm and a dedication to excellence.
+
+            Currently, I am working as a Developer at Wren Kitchens,
+            where I have had the opportunity to work on
+            a variety of exciting projects and collaborate with a talented team of developers.
+            I am excited to continue growing my skills and making meaningful
+            contributions to the field of computer science.
           </p>
         </div>
         <div className='divider div-transparent' />
