@@ -117,11 +117,13 @@ export class App extends React.Component {
             With over 3 years of experience designing user interfaces and developing back-end
             systems, I have honed my skills in both front-end and back-end development.
             <br />
+            <br />
             As a detail-oriented and impact-driven developer,
             I take pride in my ability to create strong,
             structured, and efficient code.
             I am constantly seeking new challenges and opportunities to expand my skills and
             knowledge, and I approach each project with enthusiasm and a dedication to excellence.
+            <br />
             <br />
             Currently, I am working as a Developer at Wren Kitchens,
             where I have had the opportunity to work on
