@@ -119,8 +119,8 @@ export class App extends React.Component {
             and working on backend.
             <br />
             <br />
-            A strong, structured, efficient, detail- and impact-oriented Developer,
-            with a range of frontend skills.
+            A strong, structured, efficient, detail and impact-oriented Developer,
+            with a range of frontend and backend skills.
             <br />
             Currently working as a Dev @ Wren Kitchens
           </p>
