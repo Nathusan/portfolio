@@ -16,11 +16,11 @@ export function Homebar(): JSX.Element {
         <a href='#education'>Education</a>
         <a href='#work-experience'>Work Experience</a>
       </nav>
-      <a className='toggle-button' onClick={onClick}>
+      <button type='button' aria-label='menu' className='toggle-button' onClick={onClick}>
         <span className='bar' />
         <span className='bar' />
         <span className='bar' />
-      </a>
+      </button>
     </div>
   );
 }

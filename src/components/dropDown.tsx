@@ -25,8 +25,8 @@ export function DropDownBuilder(arr: ListInformation[], index?: number): React.R
         </div>
         <div className={`${place.className}-detail`}>
           <div>
-            {place.grades && <li>{place.grades}</li>}
-            {place.additional && <li>{place?.additional}</li>}
+            {place.grades && <div>{place.grades}</div>}
+            {place.additional && <div>{place?.additional}</div>}
           </div>
         </div>
       </div>
