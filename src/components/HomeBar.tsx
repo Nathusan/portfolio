@@ -11,7 +11,7 @@ export function Homebar(): JSX.Element {
   return (
     <div className='home-bar'>
       <div className='nith-title'>Nithusan Sivalingarajah</div>
-      <nav className='navbar-links'>
+      <nav className='navbar-links' id='navbar-links'>
         <a href='#about'>About</a>
         <a href='#education'>Education</a>
         <a href='#work-experience'>Work Experience</a>
