@@ -293,7 +293,7 @@ section::after {
 
         >div {
             margin-bottom: 20px;
-            width: 150px;
+            width: 5rem;
             float: left;
             color: #fff;
             text-align: center;
@@ -423,6 +423,27 @@ section::after {
         display: inline-block;
         position: relative;
         clip-path: circle(32% at 50% 50%);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #education, #work-experience, .containers {
+      width: 75%;
+
+
+    }
+
+    #image-container {
+        display: none !important;
+    }
+
+    #col-2 {
+        padding: 6em 4em 3em 10%;
+    }
+
+    #name {
+        font-size: 210%;
+        width: unset;
     }
 }
 

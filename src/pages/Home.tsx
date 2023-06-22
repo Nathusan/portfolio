@@ -98,10 +98,10 @@ export class App extends React.Component {
           <div className='codrops-top clearfix'>
             <span className='right' />
           </div>
-          <section className='col-2 ss-style-triangles'>
+          <section className='col-2 ss-style-triangles' id='col-2'>
             <div id='me' className='me'>
               <div id='name'>Nithusan Sivalingarajah</div>
-              <div className='image-container'>
+              <div className='image-container' id='image-container'>
                 <img src={image} alt='Nith' />
               </div>
             </div>
