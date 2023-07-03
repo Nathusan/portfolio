@@ -277,13 +277,11 @@ section::after {
     background: #011627;
     padding: 2rem 5%;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    height: 150px;
+    flex-wrap: inherit;
+    flex-direction: row;
 
     .footer-container {
         margin-left: auto;
-
 
         p {
             margin: auto;
@@ -429,12 +427,20 @@ section::after {
 @media screen and (max-width: 800px) {
     #education, #work-experience, .containers {
       width: 75%;
-
-
     }
 
     #image-container {
         display: none !important;
+    }
+
+    .presentation {
+        .svg {
+            scale: 170%;
+        }
+
+        .div {
+            font-size: 60%;
+        }
     }
 
     #col-2 {
@@ -456,6 +462,14 @@ section::after {
         align-content: strectch;
         flex-direction: column;
     }
+
+    .footer .footer-container > div {
+        width: 3rem;
+        float: left;
+        color: #fff;
+        text-align: center;
+        margin-bottom: 20px;
+      }
 }
 
 
