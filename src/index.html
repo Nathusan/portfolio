@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#011627">
     <meta name="description" content="This is my(Niths) online Portfolio.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nith's Web Portfolio</title>
   </head>
   <body>
-    <div type="module"  id="app"></div>
+    <div type="module" id="app"></div>
     <script type='module' src="index.tsx"></script>
+    <script type="module">
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register(new URL('./components/service-worker.js', import.meta.url))
+            .then(function(registration) {
+              console.log('Worker registration successful', registration.scope);
+            })
+            .catch(function(err) {
+              console.log('Worker registration failed', err);
+            });
+        });
+      } else {
+        console.log('Service Worker is not supported by the browser.');
+      }
+    </script>
   </body>
 </html>
