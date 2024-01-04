@@ -112,7 +112,7 @@ export class App extends React.Component {
             <BiUser />
           </div>
           <p>
-            As a 24-year-old computer scientist with a love for nature and a passion for exploring,
+            As a 25-year-old computer scientist with a love for nature and a passion for exploring,
             I bring a unique perspective to my work as a Developer.
             With over 3 years of experience designing user interfaces and developing back-end
             systems, I have honed my skills in both front-end and back-end development.
